@@ -1159,12 +1159,6 @@ bool WiFiManager::setSTAConfig(){
 	  DEBUG_WM(WM_DEBUG_DEV,F("STA static IP:"),_sta_static_ip);  
   #endif
   bool ret = true;
-  #ifdef WM_DEBUG_LEVEL
-	  String Mac;
-	  Mac= String(_serverMac[0])+":"+String(_serverMac[1])+":"+String(_serverMac[2])+":"+String(_serverMac[3])+":"+String(_serverMac[4])+":"+String(_serverMac[5]);
-	  DEBUG_WM(F("Mac :"),Mac);
-  #endif
-
   if(_serverMac[0]|_serverMac[1]|_serverMac[2]|_serverMac[3]|_serverMac[4]|_serverMac[5]){
       esp_err_t err = esp_wifi_set_mac(WIFI_IF_STA, &_serverMac[0]);
       #ifdef WM_DEBUG_LEVEL
